@@ -232,6 +232,16 @@
         </div>
       </div>
   </section>
+  <section class="section">
+  	<div class="container">
+  	<div class="content" id="blog">
+  		<div id="news-panel">
+  		</div>
+  	</div>
+  	</div>
+  </section>
+
+
 
 
 
@@ -247,7 +257,7 @@
             <a class="google" href="https://plus.google.com/100708510576818251183/posts?hl=en-GB"></a>
 
           </div> 
-        <p>© Gwyn Hockridge 2015</p>
+        <p>&copy; Gwyn Hockridge 2015</p>
       </footer>
     <!-- /container -->
 
@@ -260,6 +270,24 @@
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
+    <script>
+    var limit = 5;
+    $.get("test-feed.xml", function (data) {
+    $(data).find("item").each(function () { // or "item" or whatever suits your feed
+        var el = $(this);
+        limit--;
+        if (limit > 0) {
+	        /* You can now process each new item like... */
+	        $("#news-panel").append("<a href=\""+el.find("link").text()+"\">"+
+	   "<div class=\"news-item\">"+
+	"<h3>"+el.find("title").text()+"</h3>"+
+	"<p class=\"news-author\">"+el.find("author").text()+"</p>"+
+	"<p class=\"news-desc\">"+el.find("description").text()+"</p>"+
+	 "</div></a>");
+	    }
+    });
+});
+</script>
 
 
 <script>
