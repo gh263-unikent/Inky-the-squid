@@ -75,8 +75,9 @@
                         <img src="images/inkysquid.png">
                         </div>
                         <div class="main-description">
-                          <h1>Gwyn<br />Hockridge's</h1>
+                          <h1>Inky the Squid</h1>
                           <a class="inky-button page-scroll" id="portfolio-button" href="#portfolio">
+                                                      <h3>Gwyn Hockridge's</h3>
                           <h2>Portfolio</h2>
                           </a>
                          </div>
@@ -100,14 +101,14 @@
           </div>
                      <div class="me"></div>
                  <div class="read-more">
-          <a class="inky-button page-scroll" href="#portfolio">
+          <a class="inky-button page-scroll" href="#about-thumbnails">
           <h4>Read more</h4>
         </a>
       </div>
         </div>
       </div>
        <div class="row" id="about-thumbnails">
-          <div class="col-sm-4"> 
+          <div class="col-sm-4 rcf"> 
               <div class="about-thumbnail">
               <img src="images/responsive.png">
                           <h3>Responsive</h3>
@@ -116,20 +117,26 @@
 <p>Mobile first is a fun challenge,  thinking outside the box and having to create two if not more designs of the same page depending on the display.
 </p>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 rcf">
                           <div class="about-thumbnail">
               <img src="images/creative.png">
                                         <h3>Creative</h3>
             </div>
-            <p>Some bullshit about being creative Tulip glass Saccharification, Yeast Bottom-fermenting Yeast krug. Grainy Conditioning Tank Grainy Ale Crystal malt Balthazar. Bright beer Autolysis Centrifugation Dextrin Estery. Trappist Lagering Pilsner, Steam Beer Microbrewery Carboy! Cask Conditioned Ale Bottom-fermenting Yeast Sweet Decoction Bunghole Pub glass Anaerobic Brewhouse!
+            <p>I love being creative. I’m always excited in producing things that grab attention, are a bit different and generally entertaining.</p><p> I’m a bit of a perfectionist and hate having to put up with ‘good enough’, which generally means I’m never happy with what I’ve done, but does mean I can produce some nice things.</p>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 rcf">
                           <div class="about-thumbnail">
               <img src="images/functional.png">
                                         <h3>Functional</h3>
             </div>
-            <p>Some crap about functionality Tulip glass Saccharification, Yeast Bottom-fermenting Yeast krug. Grainy Conditioning Tank Grainy Ale Crystal malt Balthazar. Bright beer Autolysis Centrifugation Dextrin Estery. Trappist Lagering Pilsner, Steam Beer Microbrewery Carboy! Cask Conditioned Ale Bottom-fermenting Yeast Sweet Decoction Bunghole Pub glass Anaerobic Brewhouse!</p>
+            <p>A website or a graphic design is useless if it does not fit its intended purpose, a bit of a no-brainer but any design which looks amazing and shiny but makes you think, ‘wait… What is this about?’ is a bad design, I don’t like that.</p><p>
+Also things like screens which show twitter feeds on fridges. Why? It is essentially useless. No one is going to buy a £2000 fridge to look at their twitter feed, because they’ve probably already got an expensive ipad for that at this point. However, <a class="underline" href="http://fuckyeahinternetfridge.tumblr.com/">fuck yeah internet fridgee</a> feed is amazing.</p>
           </div>
+                 <div class="read-more">
+          <a class="inky-button page-scroll" href="#portfolio">
+          <h4>Read more</h4>
+        </a>
+      </div>
         </div>
     </section>
     <section class="section  bg-dark-blue">
@@ -274,19 +281,32 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
     <script>
+<<<<<<< HEAD
     var limit = 5;
+=======
+    var limit = 5,
+        charLimit = 500;
+    $.support.cors = true;
+>>>>>>> origin/master
     $.get("http://blog.inkythesquid.co.uk/feed.xml", function (data) {
     $(data).find("item").each(function () { // or "item" or whatever suits your feed
         var el = $(this);
         limit--;
         if (limit > 0) {
+          var link, description, date;
+          link = "http://blog.inkythesquid.co.uk"+el.find("link").text();
+          description = el.find("description").text();
+          descProcessed = description.substr(0, charLimit).replace(/<p>|<\/p>/g, "").replace(/\n\n/g, "</p><p class=\"news-desc\">");
+          date = el.find("pubDate").text();
 	        /* You can now process each new item like... */
-	        $("#news-panel").append("<a href=\""+el.find("link").text()+"\">"+
+	        var $newsPanel = $("#news-panel").append("<a href=\""+link+"\">"+
 	   "<div class=\"news-item\">"+
 	"<h3>"+el.find("title").text()+"</h3>"+
-	"<p class=\"news-author\">"+el.find("author").text()+"</p>"+
-	"<p class=\"news-desc\">"+el.find("description").text()+"</p>"+
+	"<p class=\"news-date\">"+date.replace(/(^.*) \d{2}:\d{2}:\d{2}.*$/g, "$1")+"</p>"+
+	"<p class=\"news-desc\">"+descProcessed+((description.length > charLimit) ? "..." : "")+"</p>"+
+  "<p class=\"news-read-more\"><a href=\""+link+"\">Read More</a></p>"+
 	 "</div></a>");
+          
 	    }
     });
 });

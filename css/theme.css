@@ -13,8 +13,8 @@ h2  {
     letter-spacing: 3px;
   text-transform: uppercase;
 }
-h3  {
-  font-size: 2em;
+a.underline{
+  text-decoration: underline;
 }
 .content {
       width: 80%;
@@ -333,7 +333,9 @@ width: 13em;
 text-align: center;
 }
 
-
+.rcf{
+  padding-bottom: 20px;
+}
 
 
 .inky-button {
@@ -350,7 +352,7 @@ text-align: center;
 
 .inky-button#portfolio-button{
 
-  margin-top:120px;
+  margin-top:70px;
   background-color: transparent;
   transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
@@ -513,10 +515,7 @@ img.project-img {
 
 @media (min-width:400px)  {
   
-  .inky-button#portfolio-button {
-    margin-top: 120px;
 
-  }
   .main-description {
   padding-top: 35vw;
 }
@@ -526,7 +525,7 @@ img.project-img {
   @media (min-width:520px)  {
   
   .inky-button#portfolio-button {
-    margin-top: 160px;
+    margin-top: 90px;
   }
   .main-description{
   padding-top: 37vw;
@@ -561,7 +560,9 @@ float: left;
 #about-thumbnails {
   max-width: 80em;
 }
-
+.rcf {
+  margin-top: 0px;
+}
 
 
   }
@@ -576,7 +577,7 @@ float: left;
   }
 
     .inky-button#portfolio-button {
-    margin-top: 200px;
+    margin-top: 130px;
   }
 }
 
@@ -607,9 +608,7 @@ h2 {
   .main-description{
   padding-top: 35vw;
 }
-    .inky-button#portfolio-button {
-    margin-top: 200px;
-  }
+
   #header.section {
   height: 750px;
 }
@@ -625,9 +624,7 @@ img.project-img {
   #header.section {
   height: 800px;
 }
-    .inky-button#portfolio-button {
-    margin-top: 225px;
-}
+
 }
 
   @media (min-width:1250px)  {
@@ -638,9 +635,7 @@ img.project-img {
   #header.section {
   height: 850px;
 }
-    .inky-button#portfolio-button {
-    margin-top: 250px;
-  }
+
       .hello h1 {
   font-size: 6em;
   }
@@ -653,9 +648,7 @@ img.project-img {
   #header.section {
   height: 900px;
 }
-    .inky-button#portfolio-button {
-    margin-top: 225px;
-  }
+
 }
   @media (min-width:1400px)  {
     .hello h1 {
