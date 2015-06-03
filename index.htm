@@ -77,7 +77,7 @@
                         <div class="main-description">
                           <h1>Inky the Squid</h1>
                           <a class="inky-button page-scroll" id="portfolio-button" href="#portfolio">
-                                                      <h3>Gwyn Hockridge's</h3>
+                                                      <h3 class="name">Gwyn Hockridge's</h3>
                           <h2>Portfolio</h2>
                           </a>
                          </div>
@@ -130,7 +130,7 @@
                                         <h3>Functional</h3>
             </div>
             <p>A website or a graphic design is useless if it does not fit its intended purpose, a bit of a no-brainer but any design which looks amazing and shiny but makes you think, ‘wait… What is this about?’ is a bad design, I don’t like that.</p><p>
-Also things like screens which show twitter feeds on fridges. Why? It is essentially useless. No one is going to buy a £2000 fridge to look at their twitter feed, because they’ve probably already got an expensive ipad for that at this point. However, <a class="underline" href="http://fuckyeahinternetfridge.tumblr.com/">fuck yeah internet fridgee</a> feed is amazing.</p>
+Also things like screens which show twitter feeds on fridges. Why? It is essentially useless. No one is going to buy a £2000 fridge to look at their twitter feed, because they’ve probably already got an expensive ipad for that at this point. However, <a class="underline" href="http://fuckyeahinternetfridge.tumblr.com/">fuck yeah internet fridge</a> feed is amazing.</p>
           </div>
                  <div class="read-more">
           <a class="inky-button page-scroll" href="#portfolio">
@@ -242,8 +242,11 @@ Also things like screens which show twitter feeds on fridges. Why? It is essenti
         </div>
       </div>
   </section>
-  <section class="section">
+  <section class="section bg-dark-blue">
   	<div class="container">
+                <div class="content-head">
+            <h2>Blog</h2>
+          </div>
   	<div class="content" id="blog">
   		<div id="news-panel">
   		</div>
@@ -281,13 +284,12 @@ Also things like screens which show twitter feeds on fridges. Why? It is essenti
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
     <script>
-<<<<<<< HEAD
-    var limit = 5;
-=======
+
+
     var limit = 5,
         charLimit = 500;
     $.support.cors = true;
->>>>>>> origin/master
+
     $.get("http://blog.inkythesquid.co.uk/feed.xml", function (data) {
     $(data).find("item").each(function () { // or "item" or whatever suits your feed
         var el = $(this);
@@ -301,8 +303,8 @@ Also things like screens which show twitter feeds on fridges. Why? It is essenti
 	        /* You can now process each new item like... */
 	        var $newsPanel = $("#news-panel").append("<a href=\""+link+"\">"+
 	   "<div class=\"news-item\">"+
-	"<h3>"+el.find("title").text()+"</h3>"+
-	"<p class=\"news-date\">"+date.replace(/(^.*) \d{2}:\d{2}:\d{2}.*$/g, "$1")+"</p>"+
+	"<h3 class=\"news-title\">"+el.find("title").text()+"</h3>"+
+      "<p class=\"news-date\">"+date.replace(/(^.*) \d{2}:\d{2}:\d{2}.*$/g, "$1")+"</p>"+
 	"<p class=\"news-desc\">"+descProcessed+((description.length > charLimit) ? "..." : "")+"</p>"+
   "<p class=\"news-read-more\"><a href=\""+link+"\">Read More</a></p>"+
 	 "</div></a>");
