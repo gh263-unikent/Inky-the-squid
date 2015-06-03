@@ -271,19 +271,28 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
     <script>
-    var limit = 5;
-    $.get("test-feed.xml", function (data) {
+    var limit = 5,
+        charLimit = 500;
+    $.support.cors = true;
+    $.get("http://blog.inkythesquid.co.uk/feed.xml", function (data) {
     $(data).find("item").each(function () { // or "item" or whatever suits your feed
         var el = $(this);
         limit--;
         if (limit > 0) {
+          var link, description, date;
+          link = "http://blog.inkythesquid.co.uk"+el.find("link").text();
+          description = el.find("description").text();
+          descProcessed = description.substr(0, charLimit).replace(/<p>|<\/p>/g, "").replace(/\n\n/g, "</p><p class=\"news-desc\">");
+          date = el.find("pubDate").text();
 	        /* You can now process each new item like... */
-	        $("#news-panel").append("<a href=\""+el.find("link").text()+"\">"+
+	        var $newsPanel = $("#news-panel").append("<a href=\""+link+"\">"+
 	   "<div class=\"news-item\">"+
 	"<h3>"+el.find("title").text()+"</h3>"+
-	"<p class=\"news-author\">"+el.find("author").text()+"</p>"+
-	"<p class=\"news-desc\">"+el.find("description").text()+"</p>"+
+	"<p class=\"news-date\">"+date.replace(/(^.*) \d{2}:\d{2}:\d{2}.*$/g, "$1")+"</p>"+
+	"<p class=\"news-desc\">"+descProcessed+((description.length > charLimit) ? "..." : "")+"</p>"+
+  "<p class=\"news-read-more\"><a href=\""+link+"\">Read More</a></p>"+
 	 "</div></a>");
+          
 	    }
     });
 });
