@@ -154,7 +154,8 @@ section {
   color: #FFF;
   }
 .nav-up {
-  top: -281px;
+  top: -53px;
+  background: #FFF;
 }
 .normal {
 position:fixed;
@@ -166,7 +167,6 @@ text-transform: uppercase;
 font-weight: 500;
 letter-spacing: 3px;
 z-index: 99999;
-background: none;
 border-bottom: 0px;
 -webkit-transition: 0.5s;
 -moz-transition: 0.5s;
@@ -190,7 +190,7 @@ padding-top: 2px;
 transition: 0.5s;
 }
 .navbar-brand, .navbar-brand img {
-  margin: 3px auto;
+  margin: 2px auto;
 float: none;
 padding: 0px !important;
 }
@@ -521,12 +521,12 @@ img.project-img {
 .news-item{
   padding: 10px;
   border-radius: 5px;
+      transition: all  .7s ease-in-out;
+  -moz-transition: all  .7s ease-in-out;
+  -webkit-transition: all  .7s ease-in-out;
 }
 .news-item:hover{
   background-color: rgba(255, 255, 255, 0.1);
-    transition: all  .7s ease-in-out;
-  -moz-transition: all  .7s ease-in-out;
-  -webkit-transition: all  .7s ease-in-out;
 }
 
 
@@ -587,6 +587,7 @@ float: left;
 .rcf {
   margin-top: 0px;
 }
+
 
 
   }
